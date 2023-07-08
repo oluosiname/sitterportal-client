@@ -23,6 +23,11 @@ interface ButtonProps {
    * Should the button span the full width of it's container
    */
   full?: boolean;
+
+  /**
+   * Overriding css classes
+   */
+  css?: string;
 }
 
 const SIZES = {
@@ -40,20 +45,22 @@ const STYLES = {
 /**
  * Primary UI component for user interaction
  */
-export const Button = ({
+const Button = ({
   style = 'primary',
   size = 'md',
   full,
   label,
+  css = '',
   ...props
 }: ButtonProps) => {
   const sizeStyle = SIZES[size];
 
   const className = classNames(
-    'rounded-md text-base font-bold',
+    'rounded-md text-base font-semibold',
     sizeStyle,
     STYLES[style],
-    { 'w-full': full }
+    { 'w-full': full },
+    css
   );
   return (
     <button type="button" className={className} {...props}>
@@ -61,3 +68,5 @@ export const Button = ({
     </button>
   );
 };
+
+export default Button;
