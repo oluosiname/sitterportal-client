@@ -1,11 +1,12 @@
 import React from 'react';
 import classNames from 'classnames';
+import { style } from '@/types';
 
 interface ButtonProps {
   /**
    * Is this the principal call to action on the page?
    */
-  style?: 'primary' | 'secondary' | 'tertiary';
+  style?: style;
   /**
    * How large should the button be?
    */
