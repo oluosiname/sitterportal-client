@@ -18,3 +18,29 @@
 
 body {
 }
+
+#storybook-docs .sbdocs-h2:first-of-type {
+  margin-bottom: 40px;
+}
+
+#storybook-docs .docs-story {
+  overflow: visible;
+}
+#storybook-docs .sbdocs-preview {
+  overflow: visible;
+}
+
+#storybook-docs .docs-story > div:first-child {
+  overflow: visible !important;
+  margin: unset;
+}
+
+#storybook-docs .docs-story > div:first-child > div:first-child {
+  transform: none;
+  height: auto;
+}
+
+.rn-sidebar--storybook {
+  position: unset !important;
+  max-height: 30rem;
+}
