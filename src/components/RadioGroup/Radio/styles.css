@@ -1,0 +1,12 @@
+.radioWrapper input[type='radio']:checked + label:before {
+  @apply animate-[ripple_0.2s_linear_forwards];
+}
+
+.radioWrapper input[type='radio']:checked + label:after {
+  @apply scale-100;
+}
+
+.radioWrapper label:before,
+.radioWrapper label:after {
+  @apply absolute content-[''] transition-all duration-[0.3s] ease-[ease] transition-[transform,border-color] rounded-[50%];
+}
