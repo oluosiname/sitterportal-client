@@ -23,8 +23,27 @@ module.exports = {
       colors: {
         primary: '#fcdb02',
         primaryDark: '#dec102',
+
         secondary: '#214d63',
-        secondaryDark: '#214d63',
+        secondaryDark: '#3a4957',
+        disabled: 'd3d3d3',
+        gray: {
+          100: '#fafafa',
+          200: '#eeeeee',
+          300: '#666666',
+          400: '#dfdfdf',
+        },
+        black: {
+          100: '#212529',
+        },
+        red: {
+          100: '#e3580f',
+        },
+      },
+      fontFamily: {
+        sora: ['var(--font-sora)'],
+        robotoSlab: ['var(--font-robotoSlab)'],
+        quicksand: ['var(--font-quicksand)'],
       },
     },
   },
