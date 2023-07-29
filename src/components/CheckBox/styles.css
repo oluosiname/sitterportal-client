@@ -1,0 +1,8 @@
+.checkbox label::after {
+  @apply absolute left-[-1.5rem] block w-4 h-4 content-[""] top-[0.15rem];
+  background: no-repeat 50%/50% 50%;
+}
+
+.checkbox input[type='checkbox']:checked + label:after {
+  @apply bg-[url('../../assets/images/check.svg')];
+}
