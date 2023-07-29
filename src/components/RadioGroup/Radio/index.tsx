@@ -45,14 +45,16 @@ export const Radio = ({
   const id = `${name}-${value}`;
 
   const STYLES = {
-    primary: 'after:bg-primary peer-checked:before:border-primary',
-    secondary: 'after:bg-secondary peer-checked:before:border-secondary',
+    primary:
+      'after:bg-white peer-checked:before:border-primary peer-checked:before:bg-primary',
+    secondary:
+      'after:bg-white peer-checked:before:border-secondary peer-checked:before:bg-secondary',
     disabled:
-      'peer-disabled:before:border-disabled peer-disabled:peer-checked:after:bg-disabled peer-disabled:before:bg-gray-400 peer-disabled:peer-checked:before:bg-white',
+      'peer-disabled:before:border-disabled peer-disabled:peer-checked:after:bg-white peer-disabled:before:bg-gray-400 peer-disabled:peer-checked:before:bg-disabled',
   };
 
   const className = classNames(
-    'inline-block h-5 relative cursor-pointer  before:left-0 before:top-0.5 after:w-2.5 after:h-2.5 after:scale-0 align-bottom mb-0 px-[30px] py-0 before:w-5 before:h-5 before:border-2 before:border-solid after:left-[5px] after:top-[7px]',
+    'inline-block h-5 relative cursor-pointer before:left-0 before:top-1 after:w-1.5 after:h-1.5 after:scale-0 align-bottom mb-0 px-[30px] py-0 before:w-4 before:h-4 before:border-2 before:border-solid after:left-[5px] after:top-[9px]',
     { 'before:border-gray-400': !checked },
     STYLES[variant],
     STYLES.disabled
