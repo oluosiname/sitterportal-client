@@ -1,5 +1,6 @@
 import React from 'react';
 import './styles.css';
+import classNames from 'classnames';
 
 export interface RadioProps {
   /**
@@ -42,8 +43,21 @@ export const Radio = ({
   onChange,
 }: RadioProps) => {
   const id = `${name}-${value}`;
-  const checkedColor = disabled ? 'gray-400' : variant;
-  const defaultColor = disabled ? 'gray-400' : 'gray-300';
+
+  const STYLES = {
+    primary: 'after:bg-primary peer-checked:before:border-primary',
+    secondary: 'after:bg-secondary peer-checked:before:border-secondary',
+    disabled:
+      'peer-disabled:before:border-disabled peer-disabled:peer-checked:after:bg-disabled peer-disabled:before:bg-gray-400 peer-disabled:peer-checked:before:bg-white',
+  };
+
+  const className = classNames(
+    'inline-block h-5 relative cursor-pointer  before:left-0 before:top-0.5 after:w-2.5 after:h-2.5 after:scale-0 align-bottom mb-0 px-[30px] py-0 before:w-5 before:h-5 before:border-2 before:border-solid after:left-[5px] after:top-[7px]',
+    { 'before:border-gray-400': !checked },
+    STYLES[variant],
+    STYLES.disabled
+  );
+
   return (
     <div className="mx-0 my-4 radioWrapper">
       <input
@@ -54,11 +68,9 @@ export const Radio = ({
         checked={checked}
         onChange={(e) => onChange(e.target.value)}
         className="peer hidden"
+        disabled={disabled}
       />
-      <label
-        htmlFor={id}
-        className={`inline-block h-5 relative cursor-pointer align-bottom mb-0 px-[30px] py-0 before:w-5 before:h-5 before:border-2 before:border-solid before:border-${defaultColor} before:left-0 before:top-0.5 after:w-2.5 after:h-2.5 after:scale-0 after:left-[5px] after:top-[7px] after:bg-${checkedColor} peer-checked:before:border-${checkedColor}`}
-      >
+      <label htmlFor={id} className={className}>
         {label}
       </label>
     </div>

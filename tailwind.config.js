@@ -33,7 +33,7 @@ module.exports = {
 
         secondary: '#214d63',
         secondaryDark: '#3a4957',
-        disabled: 'd3d3d3',
+        disabled: '#d3d3d3',
         gray: {
           100: '#fafafa',
           200: '#eeeeee',

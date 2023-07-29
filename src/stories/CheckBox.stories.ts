@@ -7,7 +7,7 @@ const meta: Meta<typeof CheckBox> = {
   component: CheckBox,
   tags: ['autodocs'],
   args: {
-    label: 'Whereas recognition of the inherent dignity',
+    label: 'I agree',
     name: 'terms',
     variant: 'primary',
   },
