@@ -26,7 +26,7 @@ export interface RadioProps {
   /**
    * Change handler
    */
-  onChange: (val: string) => void;
+  onChange: (value: string) => void;
   /**
    * Is radio disabled
    */

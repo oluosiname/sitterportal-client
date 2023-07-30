@@ -1,13 +1,6 @@
 import React from 'react';
 import { Radio } from './Radio';
-
-// argTypes: {
-//   onClick: {
-//     table: {
-//       disable: true,
-//     },
-//   },
-// },
+import { OnChange } from '@/types';
 
 interface RadioOption {
   label: string;
@@ -22,11 +15,11 @@ export interface RadioGroupProps {
   /**
    * Change handler
    */
-  onChange: (val: string) => void;
+  onChange?: OnChange;
   /**
    * Name of the radio group (inherited from radio group)
    */
-  name?: string;
+  name: string;
   /**
    * current value of the radio group
    */
@@ -53,6 +46,10 @@ const RadioGroup = ({
   variant = 'primary',
   onChange,
 }: RadioGroupProps) => {
+  const handleRadioSelect = (value: string) => {
+    onChange?.(name, value);
+  };
+
   return (
     <fieldset>
       <legend>{label}</legend>
@@ -63,7 +60,7 @@ const RadioGroup = ({
           value={option.value}
           checked={value === option.value}
           label={option.label}
-          onChange={onChange}
+          onChange={handleRadioSelect}
           variant={variant}
         />
       ))}
@@ -72,18 +69,3 @@ const RadioGroup = ({
 };
 
 export default RadioGroup;
-
-// {
-//   Children.map(children, (child) => {
-//     if (!isValidElement(child)) {
-//       return null;
-//     }
-
-//     const radio = child as ReactElement<PropsWithChildren<RadioProps>>;
-//     return cloneElement(radio, {
-//       ...radio.props,
-//       checked: value === radio.props.value,
-//       // onChange,
-//     });
-//   });
-// }

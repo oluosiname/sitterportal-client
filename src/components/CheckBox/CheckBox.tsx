@@ -3,15 +3,16 @@ import classNames from 'classnames';
 
 // import checkmark from '../../assets/images/check.svg';
 import './styles.css';
+import { OnChange, Variant } from '@/types';
 export interface CheckBoxProps {
   /**
-   * Name of the radio group (inherited from radio group)
+   * Name of the checkbox
    */
-  name?: string;
+  name: string;
   /**
    * Color scheme
    */
-  variant: 'primary' | 'secondary';
+  variant?: Variant;
   /**
    * Text to be displayed next to the checkbox button
    */
@@ -23,7 +24,7 @@ export interface CheckBoxProps {
   /**
    * Change handler
    */
-  onChange: (val: string) => void;
+  onChange?: OnChange;
   /**
    * Is checkbox disabled
    */
@@ -36,9 +37,9 @@ const CheckBox = ({
   checked,
   name,
   onChange,
-  variant,
+  variant = 'primary',
 }: CheckBoxProps) => {
-  const STYLES = {
+  const STYLES: { [key: string]: string } = {
     primary:
       'peer-checked:before:bg-primary peer-checked:before:border-primary',
     // primary:
@@ -62,7 +63,7 @@ const CheckBox = ({
         id={name}
         name={name}
         checked={checked}
-        onChange={(e) => onChange(e.target.value)}
+        onChange={(e) => onChange?.(name, e.target.checked)}
         className="absolute z-[-1] w-4 h-5 opacity-0 left-0 peer"
         disabled={disabled}
       />

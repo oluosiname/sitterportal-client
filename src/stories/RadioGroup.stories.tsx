@@ -17,18 +17,24 @@ const meta: Meta<typeof RadioGroup> = {
       { label: 'Female', value: 'female' },
     ],
   },
+  argTypes: {
+    onChange: {
+      table: {
+        disable: true,
+      },
+    },
+  },
 
   decorators: [
     function Component(Story, ctx) {
       const [, updateArgs] = useArgs<typeof ctx.args>();
 
-      const onChange = (selectedValue: string) => {
-        ctx.args.onChange?.(selectedValue);
-
+      const handleChange = (name: string, selectedValue: string) => {
+        ctx.args.onChange?.(name, selectedValue);
         updateArgs({ value: selectedValue });
       };
 
-      return <Story args={{ ...ctx.args, onChange }} />;
+      return <Story args={{ ...ctx.args, onChange: handleChange }} />;
     },
   ],
 };

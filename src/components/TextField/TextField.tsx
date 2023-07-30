@@ -8,7 +8,7 @@ interface TextFieldProps {
   /**
    * Value of TextField
    */
-  value: string;
+  value?: string;
   /**
    * error message for when textfield is invalid
    */
@@ -22,9 +22,9 @@ interface TextFieldProps {
    */
   label: string;
   /**
-   * Optional click handler
+   * Optional change handler
    */
-  onChange: (value: string) => void;
+  onChange?: (name: string, value: string) => void;
   /**
    * Icon to be displayed in Textfield
    */
@@ -71,7 +71,7 @@ const TextField = ({
         name={name}
         value={value}
         disabled={disabled}
-        onChange={(e) => onChange(e.target.value)}
+        onChange={(e) => onChange && onChange(e.target.name, e.target.value)}
       />
     </div>
   );
