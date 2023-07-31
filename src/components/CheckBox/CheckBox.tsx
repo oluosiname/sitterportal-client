@@ -1,7 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
 
-// import checkmark from '../../assets/images/check.svg';
 import './styles.css';
 import { OnChange, Variant } from '@/types';
 export interface CheckBoxProps {

@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import Form from '../components/Form';
 import TextField from '../components/TextField';
-import { RadioGroup } from '../components';
+import { RadioGroup, Switch } from '../components';
 import CheckBox from '../components/CheckBox';
 
 const meta: Meta<typeof Form> = {
@@ -23,7 +23,14 @@ type Story = StoryObj<typeof Form>;
 export const Default: Story = {
   render: () => (
     <div className="w-80">
-      <Form initialData={{ username: 'ssss', sex: '', terms: '' }}>
+      <Form
+        initialData={{
+          username: 'ssss',
+          sex: '',
+          terms: '',
+          recurringBilling: null,
+        }}
+      >
         <TextField name="username" label="username" />
         <TextField name="lastname" label="lastname" />
         <RadioGroup
@@ -35,6 +42,7 @@ export const Default: Story = {
           ]}
         />
         <CheckBox name="terms" label="I agree to the terms and condition" />
+        <Switch name="recurringBilling" label={{ on: 'Recurring Billing' }} />
       </Form>
     </div>
   ),

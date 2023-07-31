@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import RadioGroup from '../components/RadioGroup';
 import { useArgs } from '@storybook/client-api';
+import { FormValue } from '@/components/Form/Form';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta: Meta<typeof RadioGroup> = {
@@ -29,9 +30,10 @@ const meta: Meta<typeof RadioGroup> = {
     function Component(Story, ctx) {
       const [, updateArgs] = useArgs<typeof ctx.args>();
 
-      const handleChange = (name: string, selectedValue: string) => {
+      const handleChange = (name: string, selectedValue: FormValue) => {
+        const castSelectedValue = selectedValue as string;
         ctx.args.onChange?.(name, selectedValue);
-        updateArgs({ value: selectedValue });
+        updateArgs({ value: castSelectedValue });
       };
 
       return <Story args={{ ...ctx.args, onChange: handleChange }} />;

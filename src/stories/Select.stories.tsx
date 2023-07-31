@@ -14,6 +14,23 @@ const meta: Meta<typeof Select> = {
   //     control: 'color',
   //   },
   // },
+  decorators: [
+    function Component(Story, ctx) {
+      // const [, updateArgs] = useArgs<typeof ctx.args>();
+
+      // const handleChange = (name: string, selectedValue: FormValue) => {
+      //   const castSelectedValue = selectedValue as string;
+      //   ctx.args.onChange?.(name, selectedValue);
+      //   updateArgs({ value: castSelectedValue });
+      // };
+
+      return (
+        <div className="w-80">
+          <Story args={{ ...ctx.args, options, label: 'Select Month' }} />;
+        </div>
+      );
+    },
+  ],
 };
 
 export default meta;
@@ -33,40 +50,22 @@ const options = [
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Default: Story = {
-  render: () => (
-    <div className="w-80">
-      <Select options={options} label="Select Month" />
-    </div>
-  ),
+  args: {},
 };
 
 export const Open: Story = {
-  render: () => (
-    <div className="w-80">
-      <Select options={options} label="Select Month" />
-    </div>
-  ),
+  args: {},
 };
 
 export const WithSelectedOption: Story = {
-  render: () => (
-    <div className="w-80">
-      <Select options={options} value={options[2].value} label="Select Month" />
-    </div>
-  ),
+  args: {
+    value: options[2].value,
+  },
 };
 
 export const WithPlaceholder: Story = {
-  render: () => (
-    <div className="w-80">
-      <Select options={options} placeholder="Select Month" />
-    </div>
-  ),
+  args: {},
 };
 export const Filterable: Story = {
-  render: () => (
-    <div className="w-80">
-      <Select options={options} label="Select Month" />
-    </div>
-  ),
+  args: {},
 };
