@@ -14,6 +14,10 @@ module.exports = {
       xl: '1440px',
     },
 
+    fontFamily: {
+      body: ['var(--font-quicksand)'],
+    },
+
     extend: {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
@@ -22,11 +26,14 @@ module.exports = {
       },
       colors: {
         primary: '#fcdb02',
+        primaryOpacity: {
+          100: 'rgba(252, 219, 2, 0.1)',
+        },
         primaryDark: '#dec102',
 
         secondary: '#214d63',
         secondaryDark: '#3a4957',
-        disabled: 'd3d3d3',
+        disabled: '#d3d3d3',
         gray: {
           100: '#fafafa',
           200: '#eeeeee',

@@ -5,6 +5,9 @@ import { quicksand, robotoSlab, sora } from '@/assets/fonts';
 
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import { config } from '@fortawesome/fontawesome-svg-core';
+
+import '@fortawesome/fontawesome-svg-core/styles.css';
+
 config.autoAddCss = false;
 
 export const metadata = {

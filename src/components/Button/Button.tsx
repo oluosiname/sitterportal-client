@@ -23,6 +23,11 @@ interface ButtonProps {
    * Should the button span the full width of it's container
    */
   full?: boolean;
+
+  /**
+   * Overriding css classes
+   */
+  css?: string;
 }
 
 const SIZES = {
@@ -34,26 +39,29 @@ const SIZES = {
 const STYLES = {
   primary: 'bg-primary text-secondary hover:bg-primaryDark',
   secondary: 'bg-secondary text-white hover:bg-primary hover:text-secondary',
-  tertiary: 'bg-white text-secondary hover:bg-primary',
+  tertiary:
+    'bg-white  border border-solid border-gray-200 text-secondary hover:bg-primary',
 };
 
 /**
  * Primary UI component for user interaction
  */
-export const Button = ({
+const Button = ({
   style = 'primary',
   size = 'md',
   full,
   label,
+  css = '',
   ...props
 }: ButtonProps) => {
   const sizeStyle = SIZES[size];
 
   const className = classNames(
-    'rounded-md text-base font-bold',
+    'rounded-md text-base font-semibold',
     sizeStyle,
     STYLES[style],
-    { 'w-full': full }
+    { 'w-full': full },
+    css
   );
   return (
     <button type="button" className={className} {...props}>
@@ -61,3 +69,5 @@ export const Button = ({
     </button>
   );
 };
+
+export default Button;
