@@ -2,12 +2,18 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons';
 import useOutsideClick from '../../hooks/use-outside-click';
+import Label from '../atoms/Label';
+import { OnChange } from '@/types';
 
 export interface SelectOption {
   key: string;
   value: string;
 }
 export interface SelectProps {
+  /**
+   * name of select
+   */
+  name: string;
   /**
    * Array of values for the select input (should have properties key and value)
    */
@@ -27,13 +33,14 @@ export interface SelectProps {
   /**
    *  Optional onChange handler
    */
-  onChange?: () => void;
+  onChange?: OnChange;
 }
 
 const Select = ({
   options,
   label,
   value,
+  name,
   placeholder,
   onChange,
 }: SelectProps) => {
@@ -43,9 +50,9 @@ const Select = ({
     setOpen((prev) => !prev);
   };
 
-  const onSelect = () => {
+  const onSelect = (value: string) => {
     if (onChange) {
-      onChange();
+      onChange(name, value);
     }
     toggle();
   };
@@ -54,7 +61,7 @@ const Select = ({
 
   return (
     <div className="relative" ref={ref}>
-      <label className="block text-secondary mb-2 font-medium">{label}</label>
+      {label && <Label error={false} name={name} label={label} />}
 
       <div className="h-12 px-5 rounded-sm border border-solid border-gray-200 flex items-center">
         <div
@@ -73,7 +80,7 @@ const Select = ({
             {options.map(({ key, value }) => (
               <div
                 key={key}
-                onClick={onSelect}
+                onClick={() => onSelect(value)}
                 className="cursor-pointer p-1.5 hover:bg-primary hover:bg-opacity-10 hover:text-secondaryDark hover:font-medium"
               >
                 {value}

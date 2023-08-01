@@ -1,4 +1,5 @@
 import React from 'react';
+import Label from '../atoms/Label';
 
 interface TextFieldProps {
   /**
@@ -56,14 +57,7 @@ const TextField = ({
   }
   return (
     <div>
-      <label
-        htmlFor={name}
-        className={`block font-semibold mb-2 text-base text-secondary ${
-          error ? '!text-red-100' : ''
-        }`}
-      >
-        {label}
-      </label>
+      <Label error={!!error} name={name} label={label} />
       <input
         className={`border border-gray-200 py-3.5 px-5 rounded text-sm text-gray-300 transition duration-150 ease-out ease-in outline-none focus:border-primary focus:text-black-100 focus:background-white w-full ${inputCSSOverride}`}
         type="text"

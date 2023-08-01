@@ -1,32 +1,38 @@
 import React from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react';
+import { useArgs } from '@storybook/client-api';
 
 import Select from '../components/Select';
+import { FormValue } from '@/components/Form/Form';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 const meta: Meta<typeof Select> = {
   title: 'Components/FormControl/Select',
   component: Select,
   tags: ['autodocs'],
-  // argTypes: {
-  //   backgroundColor: {
-  //     control: 'color',
-  //   },
-  // },
+
+  args: { name: 'month' },
   decorators: [
     function Component(Story, ctx) {
-      // const [, updateArgs] = useArgs<typeof ctx.args>();
+      const [, updateArgs] = useArgs<typeof ctx.args>();
 
-      // const handleChange = (name: string, selectedValue: FormValue) => {
-      //   const castSelectedValue = selectedValue as string;
-      //   ctx.args.onChange?.(name, selectedValue);
-      //   updateArgs({ value: castSelectedValue });
-      // };
+      const handleChange = (name: string, selectedValue: FormValue) => {
+        const castSelectedValue = selectedValue as string;
+        ctx.args.onChange?.(name, selectedValue);
+        updateArgs({ value: castSelectedValue });
+      };
 
       return (
         <div className="w-80">
-          <Story args={{ ...ctx.args, options, label: 'Select Month' }} />;
+          <Story
+            args={{
+              ...ctx.args,
+              options,
+              label: 'Select Month',
+              onChange: handleChange,
+            }}
+          />
         </div>
       );
     },

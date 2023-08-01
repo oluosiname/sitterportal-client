@@ -19,7 +19,6 @@ const meta: Meta<typeof Switch> = {
       const [, updateArgs] = useArgs<typeof ctx.args>();
 
       const handleChange = (name: string, selectedValue: FormValue) => {
-        console.log({ name, selectedValue });
         const checkedValue = selectedValue as boolean;
         ctx.args.onChange?.(name, selectedValue);
         updateArgs({ checked: checkedValue });
