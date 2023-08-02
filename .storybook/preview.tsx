@@ -2,6 +2,7 @@ import '../src/styles/globals.css';
 import { quicksand, robotoSlab, sora } from '../src/assets/fonts';
 
 import type { Preview } from '@storybook/react';
+import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 
 import { withThemeByClassName } from '@storybook/addon-styling';
 import React from 'react';
@@ -14,6 +15,9 @@ const preview: Preview = {
         color: /(background|color)$/i,
         date: /Date$/,
       },
+    },
+    viewport: {
+      viewports: INITIAL_VIEWPORTS, // newViewports would be an ViewportMap. (see below for examples)
     },
   },
 

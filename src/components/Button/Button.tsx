@@ -38,9 +38,9 @@ const SIZES = {
 
 const STYLES = {
   primary: 'bg-primary text-secondary hover:bg-primaryDark',
-  secondary: 'bg-secondary text-white hover:bg-primary hover:text-secondary',
+  secondary: 'bg-secondary text-white hover:bg-secondaryLight',
   tertiary:
-    'bg-white  border border-solid border-gray-200 text-secondary hover:bg-primary',
+    'bg-white border border-gray-200 text-secondary hover:bg-offWhite hover:border-offWhite',
 };
 
 /**

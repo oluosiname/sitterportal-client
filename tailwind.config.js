@@ -29,17 +29,23 @@ module.exports = {
         primaryOpacity: {
           100: 'rgba(252, 219, 2, 0.1)',
         },
+
         primaryDark: '#dec102',
 
         secondary: '#214d63',
         secondaryDark: '#3a4957',
+        secondaryLight: '#275c76',
         disabled: '#d3d3d3',
+        muted: '#54595E',
+        offWhite: '#fcfcfc',
         gray: {
           100: '#fafafa',
           200: '#eeeeee',
           300: '#666666',
           400: '#dfdfdf',
+          500: '#f5f5f5',
         },
+        backdrop: 'rgba(245,245,245, 0.1)',
         black: {
           100: '#212529',
         },
