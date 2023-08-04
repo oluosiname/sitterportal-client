@@ -47,8 +47,6 @@ const TextField = ({
   label,
   error,
   disabled,
-  icon,
-  iconPosition,
   css = '',
 }: TextFieldProps) => {
   let inputCSSOverride = `${css} `;
